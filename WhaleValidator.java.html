@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>WhaleValidator.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #2aacb8;}
+.s5 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+WhaleValidator.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+
+<span class="s3">// Validates user input to prevent crashes or invalid data</span>
+<span class="s0">public class </span><span class="s1">WhaleValidator </span><span class="s2">{</span>
+
+    <span class="s3">// Validate species ID is not empty</span>
+    <span class="s0">public static boolean </span><span class="s1">isValidSpeciesId</span><span class="s2">(</span><span class="s1">String id</span><span class="s2">) {</span>
+        <span class="s0">return </span><span class="s1">id </span><span class="s2">!= </span><span class="s0">null </span><span class="s2">&amp;&amp; !</span><span class="s1">id</span><span class="s2">.</span><span class="s1">trim</span><span class="s2">().</span><span class="s1">isEmpty</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// Validate scientific name</span>
+    <span class="s0">public static boolean </span><span class="s1">isValidScientificName</span><span class="s2">(</span><span class="s1">String name</span><span class="s2">) {</span>
+        <span class="s0">return </span><span class="s1">name </span><span class="s2">!= </span><span class="s0">null </span><span class="s2">&amp;&amp; !</span><span class="s1">name</span><span class="s2">.</span><span class="s1">trim</span><span class="s2">().</span><span class="s1">isEmpty</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// Validate list of names or regions</span>
+    <span class="s0">public static boolean </span><span class="s1">isValidList</span><span class="s2">(</span><span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">list</span><span class="s2">) {</span>
+        <span class="s0">return </span><span class="s1">list </span><span class="s2">!= </span><span class="s0">null </span><span class="s2">&amp;&amp; !</span><span class="s1">list</span><span class="s2">.</span><span class="s1">isEmpty</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// Validate positive numbers for length and weight</span>
+    <span class="s0">public static boolean </span><span class="s1">isValidPositiveDouble</span><span class="s2">(</span><span class="s0">double </span><span class="s1">value</span><span class="s2">) {</span>
+        <span class="s0">return </span><span class="s1">value </span><span class="s2">&gt; </span><span class="s4">0</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// Validate conservation status</span>
+    <span class="s0">public static boolean </span><span class="s1">isValidConservationStatus</span><span class="s2">(</span><span class="s1">String status</span><span class="s2">) {</span>
+        <span class="s0">try </span><span class="s2">{</span>
+            <span class="s1">ConservationStatus</span><span class="s2">.</span><span class="s1">valueOf</span><span class="s2">(</span><span class="s1">status</span><span class="s2">.</span><span class="s1">toUpperCase</span><span class="s2">().</span><span class="s1">replace</span><span class="s2">(</span><span class="s5">&quot; &quot;</span><span class="s2">, </span><span class="s5">&quot;_&quot;</span><span class="s2">));</span>
+            <span class="s0">return true</span><span class="s2">;</span>
+        <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">IllegalArgumentException e</span><span class="s2">) {</span>
+            <span class="s0">return false</span><span class="s2">;</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+
+</pre>
+</body>
+</html>

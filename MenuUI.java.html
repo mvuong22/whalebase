@@ -1,0 +1,387 @@
+<html>
+<head>
+<title>MenuUI.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MenuUI.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">ArrayList</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">List</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+<span class="s3">// Handles user input via console</span>
+<span class="s0">public class </span><span class="s1">MenuUI </span><span class="s2">{</span>
+    <span class="s0">private </span><span class="s1">AppController controller </span><span class="s2">= </span><span class="s0">new </span><span class="s1">AppController</span><span class="s2">();</span>
+    <span class="s0">private </span><span class="s1">Scanner scanner </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+
+    <span class="s0">public void </span><span class="s1">start</span><span class="s2">() {</span>
+        <span class="s0">boolean </span><span class="s1">running </span><span class="s2">= </span><span class="s0">true</span><span class="s2">;</span>
+
+        <span class="s0">while </span><span class="s2">(</span><span class="s1">running</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Welcome to WhaleBase Explorer! Let's add some whales to your WhaleLog!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;&lt;====== WB MENU ======&gt;&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">1. Add Whale&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;2. Remove Whale&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;3. Update Whale&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;4. Display All Whales&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;5. Conservation Overview&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;6. Exit&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Select an option: &quot;</span><span class="s2">);</span>
+            <span class="s1">String input </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+
+            <span class="s0">switch </span><span class="s2">(</span><span class="s1">input</span><span class="s2">) {</span>
+                <span class="s0">case </span><span class="s4">&quot;1&quot; </span><span class="s1">-&gt; addWhale</span><span class="s2">();</span>
+                <span class="s0">case </span><span class="s4">&quot;2&quot; </span><span class="s1">-&gt; removeWhale</span><span class="s2">();</span>
+                <span class="s0">case </span><span class="s4">&quot;3&quot; </span><span class="s1">-&gt; updateWhale</span><span class="s2">();</span>
+                <span class="s0">case </span><span class="s4">&quot;4&quot; </span><span class="s1">-&gt; controller</span><span class="s2">.</span><span class="s1">displayAll</span><span class="s2">();</span>
+                <span class="s0">case </span><span class="s4">&quot;5&quot; </span><span class="s1">-&gt; controller</span><span class="s2">.</span><span class="s1">conservationOverview</span><span class="s2">();</span>
+                <span class="s0">case </span><span class="s4">&quot;6&quot; </span><span class="s1">-&gt; </span><span class="s2">{</span>
+                    <span class="s1">running </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Exiting Whale Base... Wave you later!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+                <span class="s0">default </span><span class="s1">-&gt; System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Invalid input. Try again!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private void </span><span class="s1">addWhale</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Add Whale:&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;1. Manual Entry&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;2. Upload from Text File&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Choose an option: &quot;</span><span class="s2">);</span>
+        <span class="s1">String choice </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+
+        <span class="s0">switch </span><span class="s2">(</span><span class="s1">choice</span><span class="s2">) {</span>
+            <span class="s0">case </span><span class="s4">&quot;1&quot; </span><span class="s1">-&gt; addWhaleManually</span><span class="s2">(); </span><span class="s3">// manual entry</span>
+            <span class="s0">case </span><span class="s4">&quot;2&quot; </span><span class="s1">-&gt; uploadWhalesFromFile</span><span class="s2">(); </span><span class="s3">// file upload</span>
+            <span class="s0">default </span><span class="s1">-&gt; System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Nice try, that's an invalid choice... Returning to menu!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s3">// manual entry method</span>
+    <span class="s0">private void </span><span class="s1">addWhaleManually</span><span class="s2">() {</span>
+        <span class="s1">String id</span><span class="s2">;</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter species ID (6 digits, no letters or spaces): &quot;</span><span class="s2">);</span>
+            <span class="s1">id </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">id</span><span class="s2">.</span><span class="s1">matches</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\\</span><span class="s4">d{6}&quot;</span><span class="s2">)) </span><span class="s0">break</span><span class="s2">;</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Almost! Let's try doing only 6 digits.</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s1">String sciName</span><span class="s2">;</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter scientific name (letters only): &quot;</span><span class="s2">);</span>
+            <span class="s1">sciName </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+            <span class="s0">if </span><span class="s2">(!</span><span class="s1">sciName</span><span class="s2">.</span><span class="s1">isEmpty</span><span class="s2">() &amp;&amp; </span><span class="s1">sciName</span><span class="s2">.</span><span class="s1">matches</span><span class="s2">(</span><span class="s4">&quot;[a-zA-Z ]+&quot;</span><span class="s2">)) </span><span class="s0">break</span><span class="s2">;</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Nice Try! Only letters and spaces are allowed.</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">commonNames</span><span class="s2">;</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter common names (letters only): &quot;</span><span class="s2">);</span>
+            <span class="s1">String input </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+            <span class="s1">String</span><span class="s2">[] </span><span class="s1">names </span><span class="s2">= </span><span class="s1">input</span><span class="s2">.</span><span class="s1">split</span><span class="s2">(</span><span class="s4">&quot;,&quot;</span><span class="s2">);</span>
+            <span class="s0">boolean </span><span class="s1">valid </span><span class="s2">= </span><span class="s0">true</span><span class="s2">;</span>
+            <span class="s0">for </span><span class="s2">(</span><span class="s1">String name </span><span class="s2">: </span><span class="s1">names</span><span class="s2">) {</span>
+                <span class="s0">if </span><span class="s2">(!</span><span class="s1">name</span><span class="s2">.</span><span class="s1">trim</span><span class="s2">().</span><span class="s1">matches</span><span class="s2">(</span><span class="s4">&quot;[a-zA-Z ]+&quot;</span><span class="s2">)) {</span>
+                    <span class="s1">valid </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">valid </span><span class="s2">&amp;&amp; </span><span class="s1">names</span><span class="s2">.</span><span class="s1">length </span><span class="s2">&gt; </span><span class="s5">0</span><span class="s2">) {</span>
+                <span class="s1">commonNames </span><span class="s2">= </span><span class="s1">List</span><span class="s2">.</span><span class="s1">of</span><span class="s2">(</span><span class="s1">names</span><span class="s2">);</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Sneaky Sneaky! Remember only letters and spaces allowed!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s0">double </span><span class="s1">length</span><span class="s2">;</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter average length in meters (positive number): &quot;</span><span class="s2">);</span>
+            <span class="s0">try </span><span class="s2">{</span>
+                <span class="s1">length </span><span class="s2">= </span><span class="s1">Double</span><span class="s2">.</span><span class="s1">parseDouble</span><span class="s2">(</span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">());</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">length </span><span class="s2">&gt; </span><span class="s5">0</span><span class="s2">) </span><span class="s0">break</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Silly, the whale's length can't be 0 or less.</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">NumberFormatException e</span><span class="s2">) {</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Invalid input. Try again!&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+
+        <span class="s0">double </span><span class="s1">weight</span><span class="s2">;</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter average weight in tons (positive number): &quot;</span><span class="s2">);</span>
+            <span class="s0">try </span><span class="s2">{</span>
+                <span class="s1">weight </span><span class="s2">= </span><span class="s1">Double</span><span class="s2">.</span><span class="s1">parseDouble</span><span class="s2">(</span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">());</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">weight </span><span class="s2">&gt; </span><span class="s5">0</span><span class="s2">) </span><span class="s0">break</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Haha, the whale's weight must be greater than zero.</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">NumberFormatException e</span><span class="s2">) {</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Invalid input. Try again!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+
+        <span class="s1">String status</span><span class="s2">;</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Select conservation status:&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;1. Least Concern&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;2. Vulnerable&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;3. Endangered&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;4. Critically Endangered&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter number (1-4): &quot;</span><span class="s2">);</span>
+
+            <span class="s1">String input </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+            <span class="s0">switch </span><span class="s2">(</span><span class="s1">input</span><span class="s2">) {</span>
+                <span class="s0">case </span><span class="s4">&quot;1&quot; </span><span class="s1">-&gt; status </span><span class="s2">= </span><span class="s4">&quot;Least Concern&quot;</span><span class="s2">;</span>
+                <span class="s0">case </span><span class="s4">&quot;2&quot; </span><span class="s1">-&gt; status </span><span class="s2">= </span><span class="s4">&quot;Vulnerable&quot;</span><span class="s2">;</span>
+                <span class="s0">case </span><span class="s4">&quot;3&quot; </span><span class="s1">-&gt; status </span><span class="s2">= </span><span class="s4">&quot;Endangered&quot;</span><span class="s2">;</span>
+                <span class="s0">case </span><span class="s4">&quot;4&quot; </span><span class="s1">-&gt; status </span><span class="s2">= </span><span class="s4">&quot;Critically Endangered&quot;</span><span class="s2">;</span>
+                <span class="s0">default </span><span class="s1">-&gt; </span><span class="s2">{</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">That's an invalid choice. Please enter 1, 2, 3, or 4.&quot;</span><span class="s2">);</span>
+                    <span class="s0">continue</span><span class="s2">;</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+            <span class="s0">break</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">habitats</span><span class="s2">;</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter habitat regions (letters only): &quot;</span><span class="s2">);</span>
+            <span class="s1">String input </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+            <span class="s1">String</span><span class="s2">[] </span><span class="s1">regions </span><span class="s2">= </span><span class="s1">input</span><span class="s2">.</span><span class="s1">split</span><span class="s2">(</span><span class="s4">&quot;,&quot;</span><span class="s2">);</span>
+            <span class="s0">boolean </span><span class="s1">valid </span><span class="s2">= </span><span class="s0">true</span><span class="s2">;</span>
+            <span class="s0">for </span><span class="s2">(</span><span class="s1">String region </span><span class="s2">: </span><span class="s1">regions</span><span class="s2">) {</span>
+                <span class="s0">if </span><span class="s2">(!</span><span class="s1">region</span><span class="s2">.</span><span class="s1">trim</span><span class="s2">().</span><span class="s1">matches</span><span class="s2">(</span><span class="s4">&quot;[a-zA-Z ]+&quot;</span><span class="s2">)) {</span>
+                    <span class="s1">valid </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">valid </span><span class="s2">&amp;&amp; </span><span class="s1">regions</span><span class="s2">.</span><span class="s1">length </span><span class="s2">&gt; </span><span class="s5">0</span><span class="s2">) {</span>
+                <span class="s1">habitats </span><span class="s2">= </span><span class="s1">List</span><span class="s2">.</span><span class="s1">of</span><span class="s2">(</span><span class="s1">regions</span><span class="s2">);</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Oh no, invalid input. Only letters and spaces allowed!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+
+        <span class="s0">boolean </span><span class="s1">success </span><span class="s2">= </span><span class="s1">controller</span><span class="s2">.</span><span class="s1">addWhale</span><span class="s2">(</span><span class="s1">id</span><span class="s2">, </span><span class="s1">sciName</span><span class="s2">, </span><span class="s1">commonNames</span><span class="s2">, </span><span class="s1">length</span><span class="s2">, </span><span class="s1">weight</span><span class="s2">, </span><span class="s1">status</span><span class="s2">, </span><span class="s1">habitats</span><span class="s2">);</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">success</span><span class="s2">) </span><span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Awesome, your whale has been added. See if you can add some more!&quot;</span><span class="s2">);</span>
+        <span class="s0">else </span><span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Oh fish sticks! It failed to add a whale. Let's try again!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s3">//Upload from file method</span>
+    <span class="s0">private void </span><span class="s1">uploadWhalesFromFile</span><span class="s2">() {</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter file path to upload whales: &quot;</span><span class="s2">);</span>
+        <span class="s1">String filePath </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+
+        <span class="s0">try </span><span class="s2">(</span><span class="s1">Scanner fileScanner </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s0">new </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">File</span><span class="s2">(</span><span class="s1">filePath</span><span class="s2">))) {</span>
+            <span class="s0">int </span><span class="s1">count </span><span class="s2">= </span><span class="s5">0</span><span class="s2">;</span>
+            <span class="s0">while </span><span class="s2">(</span><span class="s1">fileScanner</span><span class="s2">.</span><span class="s1">hasNextLine</span><span class="s2">()) {</span>
+                <span class="s1">String line </span><span class="s2">= </span><span class="s1">fileScanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">line</span><span class="s2">.</span><span class="s1">isEmpty</span><span class="s2">()) </span><span class="s0">continue</span><span class="s2">;</span>
+
+                <span class="s3">// In order for users to upload their whale file correctly: no spaces around commas, and the lines are used for multiple names/habitats.</span>
+                <span class="s3">// Expected format: id,sciName,common1|common2,length,weight,status,habitat1|habitat2</span>
+                <span class="s1">String</span><span class="s2">[] </span><span class="s1">parts </span><span class="s2">= </span><span class="s1">line</span><span class="s2">.</span><span class="s1">split</span><span class="s2">(</span><span class="s4">&quot;,&quot;</span><span class="s2">);</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">parts</span><span class="s2">.</span><span class="s1">length </span><span class="s2">!= </span><span class="s5">7</span><span class="s2">) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Skipping invalid line: &quot; </span><span class="s2">+ </span><span class="s1">line</span><span class="s2">);</span>
+                    <span class="s0">continue</span><span class="s2">;</span>
+                <span class="s2">}</span>
+
+                <span class="s1">String id </span><span class="s2">= </span><span class="s1">parts</span><span class="s2">[</span><span class="s5">0</span><span class="s2">].</span><span class="s1">trim</span><span class="s2">();</span>
+                <span class="s1">String sciName </span><span class="s2">= </span><span class="s1">parts</span><span class="s2">[</span><span class="s5">1</span><span class="s2">].</span><span class="s1">trim</span><span class="s2">();</span>
+                <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">commonNames </span><span class="s2">= </span><span class="s1">List</span><span class="s2">.</span><span class="s1">of</span><span class="s2">(</span><span class="s1">parts</span><span class="s2">[</span><span class="s5">2</span><span class="s2">].</span><span class="s1">trim</span><span class="s2">().</span><span class="s1">split</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\\</span><span class="s4">|&quot;</span><span class="s2">));</span>
+                <span class="s0">double </span><span class="s1">length </span><span class="s2">= </span><span class="s1">Double</span><span class="s2">.</span><span class="s1">parseDouble</span><span class="s2">(</span><span class="s1">parts</span><span class="s2">[</span><span class="s5">3</span><span class="s2">].</span><span class="s1">trim</span><span class="s2">());</span>
+                <span class="s0">double </span><span class="s1">weight </span><span class="s2">= </span><span class="s1">Double</span><span class="s2">.</span><span class="s1">parseDouble</span><span class="s2">(</span><span class="s1">parts</span><span class="s2">[</span><span class="s5">4</span><span class="s2">].</span><span class="s1">trim</span><span class="s2">());</span>
+                <span class="s1">String status </span><span class="s2">= </span><span class="s1">parts</span><span class="s2">[</span><span class="s5">5</span><span class="s2">].</span><span class="s1">trim</span><span class="s2">();</span>
+                <span class="s1">List</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">&gt; </span><span class="s1">habitats </span><span class="s2">= </span><span class="s1">List</span><span class="s2">.</span><span class="s1">of</span><span class="s2">(</span><span class="s1">parts</span><span class="s2">[</span><span class="s5">6</span><span class="s2">].</span><span class="s1">trim</span><span class="s2">().</span><span class="s1">split</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\\</span><span class="s4">|&quot;</span><span class="s2">));</span>
+
+                <span class="s3">// user upload whale file validation</span>
+                <span class="s0">if </span><span class="s2">(!</span><span class="s1">WhaleValidator</span><span class="s2">.</span><span class="s1">isValidSpeciesId</span><span class="s2">(</span><span class="s1">id</span><span class="s2">)) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Skipping invalid ID: &quot; </span><span class="s2">+ </span><span class="s1">id</span><span class="s2">);</span>
+                    <span class="s0">continue</span><span class="s2">;</span>
+                <span class="s2">}</span>
+
+                <span class="s0">if </span><span class="s2">(!</span><span class="s1">WhaleValidator</span><span class="s2">.</span><span class="s1">isValidScientificName</span><span class="s2">(</span><span class="s1">sciName</span><span class="s2">)) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Skipping invalid scientific name: &quot; </span><span class="s2">+ </span><span class="s1">sciName</span><span class="s2">);</span>
+                    <span class="s0">continue</span><span class="s2">;</span>
+                <span class="s2">}</span>
+
+                <span class="s0">if </span><span class="s2">(!</span><span class="s1">WhaleValidator</span><span class="s2">.</span><span class="s1">isValidList</span><span class="s2">(</span><span class="s1">commonNames</span><span class="s2">)) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Skipping invalid common names: &quot; </span><span class="s2">+ </span><span class="s1">parts</span><span class="s2">[</span><span class="s5">2</span><span class="s2">]);</span>
+                    <span class="s0">continue</span><span class="s2">;</span>
+                <span class="s2">}</span>
+
+                <span class="s0">try </span><span class="s2">{</span>
+                    <span class="s1">length </span><span class="s2">= </span><span class="s1">Double</span><span class="s2">.</span><span class="s1">parseDouble</span><span class="s2">(</span><span class="s1">parts</span><span class="s2">[</span><span class="s5">3</span><span class="s2">].</span><span class="s1">trim</span><span class="s2">());</span>
+                    <span class="s0">if </span><span class="s2">(!</span><span class="s1">WhaleValidator</span><span class="s2">.</span><span class="s1">isValidPositiveDouble</span><span class="s2">(</span><span class="s1">length</span><span class="s2">)) {</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Skipping invalid length: &quot; </span><span class="s2">+ </span><span class="s1">parts</span><span class="s2">[</span><span class="s5">3</span><span class="s2">]);</span>
+                        <span class="s0">continue</span><span class="s2">;</span>
+                    <span class="s2">}</span>
+                <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">NumberFormatException e</span><span class="s2">) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Skipping invalid length (not a number): &quot; </span><span class="s2">+ </span><span class="s1">parts</span><span class="s2">[</span><span class="s5">3</span><span class="s2">]);</span>
+                    <span class="s0">continue</span><span class="s2">;</span>
+                <span class="s2">}</span>
+
+                <span class="s0">try </span><span class="s2">{</span>
+                    <span class="s1">weight </span><span class="s2">= </span><span class="s1">Double</span><span class="s2">.</span><span class="s1">parseDouble</span><span class="s2">(</span><span class="s1">parts</span><span class="s2">[</span><span class="s5">4</span><span class="s2">].</span><span class="s1">trim</span><span class="s2">());</span>
+                    <span class="s0">if </span><span class="s2">(!</span><span class="s1">WhaleValidator</span><span class="s2">.</span><span class="s1">isValidPositiveDouble</span><span class="s2">(</span><span class="s1">weight</span><span class="s2">)) {</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Skipping invalid weight: &quot; </span><span class="s2">+ </span><span class="s1">parts</span><span class="s2">[</span><span class="s5">4</span><span class="s2">]);</span>
+                        <span class="s0">continue</span><span class="s2">;</span>
+                    <span class="s2">}</span>
+                <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">NumberFormatException e</span><span class="s2">) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Skipping invalid weight (not a number): &quot; </span><span class="s2">+ </span><span class="s1">parts</span><span class="s2">[</span><span class="s5">4</span><span class="s2">]);</span>
+                    <span class="s0">continue</span><span class="s2">;</span>
+                <span class="s2">}</span>
+
+                <span class="s0">if </span><span class="s2">(!</span><span class="s1">WhaleValidator</span><span class="s2">.</span><span class="s1">isValidConservationStatus</span><span class="s2">(</span><span class="s1">status</span><span class="s2">)) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Skipping invalid conservation status: &quot; </span><span class="s2">+ </span><span class="s1">status</span><span class="s2">);</span>
+                    <span class="s0">continue</span><span class="s2">;</span>
+                <span class="s2">}</span>
+
+                <span class="s0">if </span><span class="s2">(!</span><span class="s1">WhaleValidator</span><span class="s2">.</span><span class="s1">isValidList</span><span class="s2">(</span><span class="s1">habitats</span><span class="s2">)) {</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Skipping invalid habitats: &quot; </span><span class="s2">+ </span><span class="s1">parts</span><span class="s2">[</span><span class="s5">6</span><span class="s2">]);</span>
+                    <span class="s0">continue</span><span class="s2">;</span>
+                <span class="s2">}</span>
+
+                <span class="s0">boolean </span><span class="s1">success </span><span class="s2">= </span><span class="s1">controller</span><span class="s2">.</span><span class="s1">addWhale</span><span class="s2">(</span><span class="s1">id</span><span class="s2">, </span><span class="s1">sciName</span><span class="s2">, </span><span class="s1">commonNames</span><span class="s2">, </span><span class="s1">length</span><span class="s2">, </span><span class="s1">weight</span><span class="s2">, </span><span class="s1">status</span><span class="s2">, </span><span class="s1">habitats</span><span class="s2">);</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">success</span><span class="s2">) </span><span class="s1">count</span><span class="s2">++;</span>
+                <span class="s0">else </span><span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Oh no! Failed to add whale from line: &quot; </span><span class="s2">+ </span><span class="s1">line</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">count </span><span class="s2">+ </span><span class="s4">&quot; whales successfully uploaded!&quot;</span><span class="s2">);</span>
+        <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">Exception e</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Failed to discover your whale file. Make sure the path is correct and file is formatted properly!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private void </span><span class="s1">removeWhale</span><span class="s2">() {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">controller</span><span class="s2">.</span><span class="s1">getAllWhales</span><span class="s2">().</span><span class="s1">isEmpty</span><span class="s2">()) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">No whales in Whale Base yet... Maybe try adding some whales first!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s0">return</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter species ID to remove: &quot;</span><span class="s2">);</span>
+        <span class="s1">String id </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+        <span class="s1">Whale whale </span><span class="s2">= </span><span class="s1">controller</span><span class="s2">.</span><span class="s1">getWhaleById</span><span class="s2">(</span><span class="s1">id</span><span class="s2">);</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">whale </span><span class="s2">== </span><span class="s0">null</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Huh, Whale not found?! Try again!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s0">return</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Are you sure you want to delete this whale? (yes/no): &quot;</span><span class="s2">);</span>
+        <span class="s1">String confirm </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">confirm</span><span class="s2">.</span><span class="s1">equalsIgnoreCase</span><span class="s2">(</span><span class="s4">&quot;yes&quot;</span><span class="s2">)) {</span>
+            <span class="s0">boolean </span><span class="s1">success </span><span class="s2">= </span><span class="s1">controller</span><span class="s2">.</span><span class="s1">removeWhale</span><span class="s2">(</span><span class="s1">id</span><span class="s2">);</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">success</span><span class="s2">) </span><span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Aw, the whale has been released, goodbye!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+        <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Whale entry cancelled. What a relief, let's keep collecting more! </span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private void </span><span class="s1">updateWhale</span><span class="s2">() {</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">controller</span><span class="s2">.</span><span class="s1">getAllWhales</span><span class="s2">().</span><span class="s1">isEmpty</span><span class="s2">()) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Looks like there's no whales in your log, nothing to update yet!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s0">return</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter species ID to update: &quot;</span><span class="s2">);</span>
+        <span class="s1">String id </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+        <span class="s1">Whale whale </span><span class="s2">= </span><span class="s1">controller</span><span class="s2">.</span><span class="s1">getWhaleById</span><span class="s2">(</span><span class="s1">id</span><span class="s2">);</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">whale </span><span class="s2">== </span><span class="s0">null</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Scanning...Whale not found! Check the species ID and try again.</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s0">return</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s0">boolean </span><span class="s1">updating </span><span class="s2">= </span><span class="s0">true</span><span class="s2">;</span>
+        <span class="s0">while </span><span class="s2">(</span><span class="s1">updating</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">--- Update Whale ---&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;1. Scientific Name&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;2. Common Names&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;3. Average Length&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;4. Average Weight&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;5. Conservation Status&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;6. Habitat Regions&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;0. Finish Updating&quot;</span><span class="s2">);</span>
+
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Select field to update: &quot;</span><span class="s2">);</span>
+            <span class="s1">String choice </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+
+            <span class="s0">switch </span><span class="s2">(</span><span class="s1">choice</span><span class="s2">) {</span>
+                <span class="s0">case </span><span class="s4">&quot;1&quot; </span><span class="s1">-&gt; </span><span class="s2">{</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter new Scientific Name: &quot;</span><span class="s2">);</span>
+                    <span class="s1">String newSci </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+                    <span class="s0">if </span><span class="s2">(</span><span class="s1">newSci</span><span class="s2">.</span><span class="s1">matches</span><span class="s2">(</span><span class="s4">&quot;[a-zA-Z ]+&quot;</span><span class="s2">)) </span><span class="s1">whale</span><span class="s2">.</span><span class="s1">setScientificName</span><span class="s2">(</span><span class="s1">newSci</span><span class="s2">);</span>
+                    <span class="s0">else </span><span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Invalid input! Letters only.</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+                <span class="s0">case </span><span class="s4">&quot;2&quot; </span><span class="s1">-&gt; </span><span class="s2">{</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter new common name(s): &quot;</span><span class="s2">);</span>
+                    <span class="s1">String</span><span class="s2">[] </span><span class="s1">names </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">().</span><span class="s1">split</span><span class="s2">(</span><span class="s4">&quot;,&quot;</span><span class="s2">);</span>
+                    <span class="s0">boolean </span><span class="s1">valid </span><span class="s2">= </span><span class="s0">true</span><span class="s2">;</span>
+                    <span class="s0">for </span><span class="s2">(</span><span class="s1">String n </span><span class="s2">: </span><span class="s1">names</span><span class="s2">) </span><span class="s0">if </span><span class="s2">(!</span><span class="s1">n</span><span class="s2">.</span><span class="s1">trim</span><span class="s2">().</span><span class="s1">matches</span><span class="s2">(</span><span class="s4">&quot;[a-zA-Z ]+&quot;</span><span class="s2">)) </span><span class="s1">valid </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+                    <span class="s0">if </span><span class="s2">(</span><span class="s1">valid</span><span class="s2">) </span><span class="s1">whale</span><span class="s2">.</span><span class="s1">setCommonNames</span><span class="s2">(</span><span class="s1">List</span><span class="s2">.</span><span class="s1">of</span><span class="s2">(</span><span class="s1">names</span><span class="s2">));</span>
+                    <span class="s0">else </span><span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Invalid input! Letters only.</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+                <span class="s0">case </span><span class="s4">&quot;3&quot; </span><span class="s1">-&gt; </span><span class="s2">{</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter new average length: &quot;</span><span class="s2">);</span>
+                    <span class="s0">try </span><span class="s2">{</span>
+                        <span class="s0">double </span><span class="s1">len </span><span class="s2">= </span><span class="s1">Double</span><span class="s2">.</span><span class="s1">parseDouble</span><span class="s2">(</span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">());</span>
+                        <span class="s0">if </span><span class="s2">(</span><span class="s1">len </span><span class="s2">&gt; </span><span class="s5">0</span><span class="s2">) </span><span class="s1">whale</span><span class="s2">.</span><span class="s1">setAvgLengthMeters</span><span class="s2">(</span><span class="s1">len</span><span class="s2">);</span>
+                        <span class="s0">else </span><span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Remember, the length must be over 0!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                    <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">NumberFormatException e</span><span class="s2">) {</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Invalid number!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                    <span class="s2">}</span>
+                <span class="s2">}</span>
+                <span class="s0">case </span><span class="s4">&quot;4&quot; </span><span class="s1">-&gt; </span><span class="s2">{</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter new average weight: &quot;</span><span class="s2">);</span>
+                    <span class="s0">try </span><span class="s2">{</span>
+                        <span class="s0">double </span><span class="s1">w </span><span class="s2">= </span><span class="s1">Double</span><span class="s2">.</span><span class="s1">parseDouble</span><span class="s2">(</span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">());</span>
+                        <span class="s0">if </span><span class="s2">(</span><span class="s1">w </span><span class="s2">&gt; </span><span class="s5">0</span><span class="s2">) </span><span class="s1">whale</span><span class="s2">.</span><span class="s1">setAvgWeightTons</span><span class="s2">(</span><span class="s1">w</span><span class="s2">);</span>
+                        <span class="s0">else </span><span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Weight can't be 0 or less!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                    <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">NumberFormatException e</span><span class="s2">) {</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Invalid number!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                    <span class="s2">}</span>
+                <span class="s2">}</span>
+                <span class="s0">case </span><span class="s4">&quot;5&quot; </span><span class="s1">-&gt; </span><span class="s2">{</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Select Conservation Status:&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;1. Least Concern&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;2. Vulnerable&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;3. Endangered&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;4. Critically Endangered&quot;</span><span class="s2">);</span>
+                    <span class="s1">String st </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">();</span>
+                    <span class="s0">switch </span><span class="s2">(</span><span class="s1">st</span><span class="s2">) {</span>
+                        <span class="s0">case </span><span class="s4">&quot;1&quot; </span><span class="s1">-&gt; whale</span><span class="s2">.</span><span class="s1">setConservationStatus</span><span class="s2">(</span><span class="s1">ConservationStatus</span><span class="s2">.</span><span class="s1">LEAST_CONCERN</span><span class="s2">);</span>
+                        <span class="s0">case </span><span class="s4">&quot;2&quot; </span><span class="s1">-&gt; whale</span><span class="s2">.</span><span class="s1">setConservationStatus</span><span class="s2">(</span><span class="s1">ConservationStatus</span><span class="s2">.</span><span class="s1">VULNERABLE</span><span class="s2">);</span>
+                        <span class="s0">case </span><span class="s4">&quot;3&quot; </span><span class="s1">-&gt; whale</span><span class="s2">.</span><span class="s1">setConservationStatus</span><span class="s2">(</span><span class="s1">ConservationStatus</span><span class="s2">.</span><span class="s1">ENDANGERED</span><span class="s2">);</span>
+                        <span class="s0">case </span><span class="s4">&quot;4&quot; </span><span class="s1">-&gt; whale</span><span class="s2">.</span><span class="s1">setConservationStatus</span><span class="s2">(</span><span class="s1">ConservationStatus</span><span class="s2">.</span><span class="s1">CRITICALLY_ENDANGERED</span><span class="s2">);</span>
+                        <span class="s0">default </span><span class="s1">-&gt; System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Invalid input! Choose 1-4.</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                    <span class="s2">}</span>
+                <span class="s2">}</span>
+                <span class="s0">case </span><span class="s4">&quot;6&quot; </span><span class="s1">-&gt; </span><span class="s2">{</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Enter new Habitat Regions: &quot;</span><span class="s2">);</span>
+                    <span class="s1">String</span><span class="s2">[] </span><span class="s1">habs </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">trim</span><span class="s2">().</span><span class="s1">split</span><span class="s2">(</span><span class="s4">&quot;,&quot;</span><span class="s2">);</span>
+                    <span class="s0">boolean </span><span class="s1">valid </span><span class="s2">= </span><span class="s0">true</span><span class="s2">;</span>
+                    <span class="s0">for </span><span class="s2">(</span><span class="s1">String h </span><span class="s2">: </span><span class="s1">habs</span><span class="s2">) </span><span class="s0">if </span><span class="s2">(!</span><span class="s1">h</span><span class="s2">.</span><span class="s1">trim</span><span class="s2">().</span><span class="s1">matches</span><span class="s2">(</span><span class="s4">&quot;[a-zA-Z ]+&quot;</span><span class="s2">)) </span><span class="s1">valid </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+                    <span class="s0">if </span><span class="s2">(</span><span class="s1">valid</span><span class="s2">) </span><span class="s1">whale</span><span class="s2">.</span><span class="s1">setHabitatRegions</span><span class="s2">(</span><span class="s1">List</span><span class="s2">.</span><span class="s1">of</span><span class="s2">(</span><span class="s1">habs</span><span class="s2">));</span>
+                    <span class="s0">else </span><span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Invalid input! Letters only.</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+                <span class="s0">case </span><span class="s4">&quot;0&quot; </span><span class="s1">-&gt; </span><span class="s2">{</span>
+                    <span class="s1">updating </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">All changes saved!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                <span class="s2">}</span>
+                <span class="s0">default </span><span class="s1">-&gt; System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">Invalid choice!</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
