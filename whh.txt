@@ -1,0 +1,20 @@
+123456,Balaenoptera musculus,Blue Whale|Giant Whale,24,150,Least Concern,Atlantic|Pacific
+234567,Orcinus orca,Killer Whale|Orca,9,6,Vulnerable,Pacific|Arctic
+345678,Eubalaena glacialis,North Atlantic Right Whale,16,70,Critically Endangered,Atlantic
+456789,Megaptera novaeangliae,Humpback Whale,14,40,Least Concern,Atlantic|Pacific|Indian
+567890,Physeter macrocephalus,Sperm Whale,18,57,Vulnerable,Atlantic|Pacific|Indian
+678901,Delphinapterus leucas,Beluga Whale|White Whale,5,1.5,Least Concern,Arctic
+789012,Monodon monoceros,Narwhal,5,1.6,Vulnerable,Arctic
+890123,Eschrichtius robustus,Gray Whale,14,40,Endangered,Pacific
+901234,Balaenoptera acutorostrata,Minke Whale,9,10,Least Concern,Atlantic|Pacific|Indian
+112233,Balaenoptera physalus,Fin Whale,22,80,Vulnerable,Atlantic|Pacific|Indian
+223344,Balaenoptera borealis,Sei Whale,18,45,Endangered,Atlantic|Pacific
+334455,Balaenoptera omurai,Omura’s Whale,11,20,Least Concern,Indian|Pacific
+445566,Balaenoptera brydei,Bryde’s Whale,14,25,Least Concern,Atlantic|Pacific|Indian
+556677,Caperea marginata,Pygmy Right Whale,6,3,Least Concern,Southern Ocean
+667788,Balaena mysticetus,Bowhead Whale,16,75,Endangered,Arctic
+778899,Kogia breviceps,Pygmy Sperm Whale,3,0.5,Least Concern,Atlantic|Pacific|Indian
+889900,Kogia sima,Dwarf Sperm Whale,2.7,0.4,Least Concern,Atlantic|Pacific
+990011,Mesoplodon densirostris,Blainville’s Beaked Whale,4.5,1.0,Least Concern,Atlantic|Pacific
+101112,Ziphius cavirostris,Cuvier’s Beaked Whale,7,3.0,Least Concern,Atlantic|Pacific|Indian
+111213,Hyperoodon ampullatus,Northern Bottlenose Whale,8,7,Endangered,North Atlantic
